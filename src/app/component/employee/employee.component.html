@@ -1,0 +1,145 @@
+<div class="container-flud g-0 p-2">
+    <nav class="navbar" style="background-color: #acacf8;">
+        <div class="container">
+            <a class="navbar-brand">Employee Management App</a>
+            <button class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#addEmployee"
+                type="submit">Add Employee</button>
+            <app-company></app-company>
+
+
+        </div>
+    </nav>
+    <div class="offset-md-8 col-md-4  p-4 ">
+        <div class="search-employees">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Filter Company</h1>
+            <input type="search" class="form-control" placeholder="Search Company"
+                (input)="searchComany(searchInput.value)" #searchInput>
+        </div>
+    </div>
+
+    <!-- Modal Add employee  -->
+    <div class="modal fade" id="addEmployee" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Add Employee</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form [formGroup]="empDetail">
+                        <!-- FIRST AND LAST NAME -->
+                        <div class="row">
+                            <div class="col">
+                                <input type="text" form-control="fname" class="form-control" placeholder="First Name"
+                                    formControlName="firstname">
+                            </div>
+                            <div class="col">
+                                <input type="text" class="form-control" placeholder="Last Name"
+                                    formControlName="lastname">
+                            </div>
+
+                            <!-- JOB INFORMATION -->
+                            <div class="row mt-5">
+                                <div class="col form-heading">
+                                    <h6 class="text-secondary fst-italic">Job Information</h6>
+                                </div>
+                            </div>
+
+                            <div class="col">
+                                <select class="form-select" placeholder="Company Name" formControlName="companyName">
+                                    <option value="" disabled selected>Select your Company</option>
+                                    <option *ngFor="let comp of company">
+                                        {{comp.name | titlecase}}
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" id="cancel" class="btn btn-secondary"
+                                data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary" (click)="addEmployee()">Add Employee</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Modal Edit Employee -->
+    <div class="modal fade" id="editEmployee" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Update Employee</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form [formGroup]="empDetail">
+                        <!-- FIRST AND LAST NAME -->
+                        <div class="row">
+                            <div class="col">
+                                <input type="text" form-control="fname" class="form-control" placeholder="First Name"
+                                    formControlName="firstname">
+                            </div>
+                            <div class="col">
+                                <input type="text" class="form-control" placeholder="Last Name"
+                                    formControlName="lastname">
+                            </div>
+
+                            <!-- JOB INFORMATION -->
+                            <div class="row mt-5">
+                                <div class="col form-heading">
+                                    <h6 class="text-secondary fst-italic">Job Information</h6>
+                                </div>
+                            </div>
+
+                            <div class="col">
+                                <select class="form-select" placeholder="Company Name" formControlName="companyName">
+                                    <option value="" disabled selected>Select your Company</option>
+                                    <option *ngFor="let comp of company">
+                                        {{comp.name | titlecase}}
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" id="cancel" class="btn btn-secondary"
+                                data-bs-dismiss="modal">Close</button>
+                            <button (click)="UpdateEmployeeDetails()" type="button" class="btn btn-primary">Update
+                                Employee</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--  List of User  -->
+    <table class="table table-light">
+        <thead>
+            <tr>
+                <th scope="col">Employee ID</th>
+                <th scope="col">First Name</th>
+                <th scope="col">Last Name</th>
+                <th scope="col">Company</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let employee of empList">
+                <th>{{employee.id}}</th>
+                <td>{{employee.firstname}}</td>
+                <td>{{employee.lastname}}</td>
+                <td>{{employee.companyName}}</td>
+
+                <td>
+                    <button (click)="editEmployee(employee)" type="button" class="btn btn-outline-primary me-2"
+                        data-bs-toggle="modal" data-bs-target="#editEmployee">Edit</button>
+                    <button type="button" class="btn btn-outline-danger"
+                        (click)="deleteEmployee(employee.id)">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

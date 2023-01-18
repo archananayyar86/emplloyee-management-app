@@ -1,0 +1,73 @@
+{
+  "empList": [
+    {
+      "id": 1,
+      "firstname": "Archana",
+      "lastname": "Nayyar",
+      "companyName": "Volvo"
+    },
+    {
+      "id": 2,
+      "firstname": "Varun",
+      "lastname": "Nayyar",
+      "companyName": "Hcl"
+    },
+    {
+      "id": 3,
+      "firstname": "johanson",
+      "lastname": "Nayysson",
+      "companyName": "No Company"
+    },
+    {
+      "id": 4,
+      "firstname": "Sujata",
+      "lastname": "Nayyar",
+      "companyName": "Afry"
+    },
+    {
+      "id": 5,
+      "firstname": "Kristofer",
+      "lastname": "johason",
+      "companyName": "Volvo"
+    },
+    {
+      "id": 6,
+      "firstname": "Archana",
+      "lastname": "Nnnsom",
+      "companyName": "Hcl"
+    }
+  ],
+  "company": [
+    {
+      "id": 1,
+      "name": "Aareon"
+    },
+    {
+      "id": 2,
+      "name": "Afry"
+    },
+    {
+      "id": 3,
+      "name": "SKF"
+    },
+    {
+      "id": 4,
+      "name": "Volvo"
+    },
+    {
+      "id": 5,
+      "name": "HCL"
+    },
+    {
+      "id": 6,
+      "name": "No Company"
+    },
+    {
+      "id": 7,
+      "name": "Avaco"
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}
